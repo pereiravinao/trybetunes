@@ -1,7 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-
-import Loading from '../components/Loading';
+import Loading from './Loading';
 import { createUser } from '../services/userAPI';
 
 const NUMBER_THREE = 3;
@@ -21,12 +19,11 @@ class Login extends React.Component {
   onChangeInput(event) {
     this.setState({
       nameInput: event.target.value,
-      stateButton: event.target.value.length >= NUMBER_THREE,
+      stateButton: event.target.value.length > NUMBER_THREE,
     });
   }
 
   async onClickFunction() {
-    const { history } = this.props;
     this.setState(
       { isLoading: true },
       async () => {
@@ -38,7 +35,6 @@ class Login extends React.Component {
         this.setState(
           { isLoading: false },
         );
-        history.push('/search');
       },
     );
   }
@@ -75,7 +71,3 @@ class Login extends React.Component {
 }
 
 export default Login;
-
-Login.propTypes = {
-  history: PropTypes.func.isRequired,
-};

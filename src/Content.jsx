@@ -12,12 +12,12 @@ class Content extends React.Component {
   render() {
     return (
       <Switch>
-        <Route path="/search"><Search /></Route>
+        <Route path="/search" component={ Search } />
         <Route path="/album/:id"><Album /></Route>
         <Route path="/favorites"><Favorites /></Route>
         <Route path="/profile/edit"><ProfileEdit /></Route>
         <Route path="/profile"><Profile /></Route>
-        <Route exact path="/"><Login /></Route>
+        <Route exact path="/" component={ Login } />
         <Route path="*"><NotFound /></Route>
       </Switch>
     );
