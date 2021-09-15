@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class MusicCard extends React.Component {
   render() {
@@ -8,6 +8,7 @@ class MusicCard extends React.Component {
       <div>
         <p>{ trackName }</p>
         <audio
+          Z
           data-testid="audio-component"
           src={ previewUrl }
           controls
@@ -24,3 +25,8 @@ class MusicCard extends React.Component {
 }
 
 export default MusicCard;
+
+MusicCard.propTypes = {
+  previewUrl: PropTypes.string.isRequired,
+  trackName: PropTypes.string.isRequired,
+};
