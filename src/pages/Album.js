@@ -1,5 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import Header from '../components/Header';
 import ListaMusicas from '../components/ListaMusicas';
 import getMusics from '../services/musicsAPI';
@@ -59,8 +61,6 @@ export default Album;
 
 Album.propTypes = {
   location: PropTypes.shape({
-    pathname: PropTypes.shape({
-      substring: PropTypes.string.isRequired,
-    }).isRequired,
+    pathname: PropTypes.string.isRequired,
   }).isRequired,
 };
