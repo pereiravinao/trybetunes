@@ -8,7 +8,6 @@ class MusicCard extends React.Component {
       <div>
         <p>{ trackName }</p>
         <audio
-          Z
           data-testid="audio-component"
           src={ previewUrl }
           controls
