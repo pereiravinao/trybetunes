@@ -17,7 +17,11 @@ class Content extends React.Component {
         <Route path="/favorites"><Favorites /></Route>
         <Route path="/profile/edit"><ProfileEdit /></Route>
         <Route path="/profile"><Profile /></Route>
-        <Route exact path="/" component={ Login } />
+        <Route
+          exact
+          path="/"
+          render={ (props) => <Login { ...props } isLoading={ false } /> }
+        />
         <Route path="*"><NotFound /></Route>
       </Switch>
     );

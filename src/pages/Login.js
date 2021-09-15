@@ -6,15 +6,15 @@ import { createUser } from '../services/userAPI';
 
 const NUMBER_THREE = 3;
 class Login extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.onChangeInput = this.onChangeInput.bind(this);
     this.onClickFunction = this.onClickFunction.bind(this);
-
+    const { isLoading } = this.props;
     this.state = {
       nameInput: '',
       stateButton: false,
-      isLoading: false,
+      isLoading,
     };
   }
 
@@ -77,5 +77,6 @@ class Login extends React.Component {
 export default Login;
 
 Login.propTypes = {
-  history: PropTypes.func.isRequired,
+  history: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool.isRequired,
 };
