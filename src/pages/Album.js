@@ -58,6 +58,9 @@ class Album extends React.Component {
 export default Album;
 
 Album.propTypes = {
-  location: PropTypes.string.isRequired,
-  pathname: PropTypes.string.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.shape({
+      substring: PropTypes.string.isRequired,
+    }).isRequired,
+  }).isRequired,
 };
