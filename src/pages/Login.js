@@ -10,11 +10,10 @@ class Login extends React.Component {
     super(props);
     this.onChangeInput = this.onChangeInput.bind(this);
     this.onClickFunction = this.onClickFunction.bind(this);
-    const { isLoading } = this.props;
     this.state = {
       nameInput: '',
       stateButton: false,
-      isLoading,
+      isLoading: false,
     };
   }
 
@@ -77,6 +76,5 @@ class Login extends React.Component {
 export default Login;
 
 Login.propTypes = {
-  history: PropTypes.string.isRequired,
-  isLoading: PropTypes.bool.isRequired,
+  history: PropTypes.func.isRequired,
 };
