@@ -8,11 +8,12 @@ class ListaMusicas extends React.Component {
     const newArray = musicsArray.slice(1);
     return (
       <div>
-        { newArray.map(({ previewUrl, trackName }, idx) => (
+        { newArray.map(({ previewUrl, trackName, trackId }, idx) => (
           <MusicCard
             key={ idx }
             previewUrl={ previewUrl }
             trackName={ trackName }
+            trackId={ trackId }
           />))}
       </div>
     );
