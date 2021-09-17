@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Loading from './Loading';
-import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, removeSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
 import getMusics from '../services/musicsAPI';
 
 class MusicCard extends React.Component {
@@ -14,6 +14,10 @@ class MusicCard extends React.Component {
       isLoading: false,
       isChecked,
     };
+  }
+
+  componentDidMount() {
+    this.fetchFavoriteSongs();
   }
 
   async getMusicById(event) {
@@ -37,6 +41,16 @@ class MusicCard extends React.Component {
     } else {
       await removeSong(idMusic);
       if (onChange) { return onChange(); }
+    }
+  }
+
+  async fetchFavoriteSongs() {
+    // PR do Michael Caxias - Parte para checagem se a musica já estava ok
+    const { trackId } = this.props;
+    const getSongs = await getFavoriteSongs();
+    const songId = getSongs.some((song) => song.trackId === trackId);
+    if (songId) {
+      this.setState({ isChecked: true });
     }
   }
 
