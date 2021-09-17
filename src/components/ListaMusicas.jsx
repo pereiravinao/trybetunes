@@ -14,6 +14,7 @@ class ListaMusicas extends React.Component {
             previewUrl={ previewUrl }
             trackName={ trackName }
             trackId={ trackId }
+            isChecked={ false }
           />))}
       </div>
     );
